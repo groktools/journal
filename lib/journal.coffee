@@ -1,5 +1,6 @@
 # JournalView = require './journal-view'
 {CompositeDisposable} = require 'atom'
+{Point} = require 'atom'
 path = require 'path'
 fs = require 'fs'
 
@@ -44,9 +45,14 @@ module.exports = Journal =
     @openEditorIfNotAlreadyOpen()
 
   newEntry: ->
-    console.log "new entry called"
+    # console.log "new entry called"
+    @openEditorIfNotAlreadyOpen()
     if editor = atom.workspace.getActiveTextEditor()
-      editor.insertText('Hello, World!')
+      lastRow = editor.getLastBufferRow()
+      editor.setCursorBufferPosition(new Point(lastRow,0))
+      editor.moveToEndOfLine()
+      editor.insertNewline()
+      editor.insertText("** #{new Date().toLocaleString()} **: ")
 
   createFileIfNotAlreadyExists: ->
     journalLoc = atom.project.getPaths()[0]
@@ -58,10 +64,8 @@ module.exports = Journal =
     console.log 'jf: #{@journalFile}'
 
   openEditorIfNotAlreadyOpen: ->
-    open = false
-    atom.workspace.getPaneItems().some (paneItem) ->
-        console.log paneItem.getURI()?.includes 'journal.md'
-        if paneItem?.getURI()?.includes 'journal.md'
-          open = true
-    if open == false
-      atom.workspace.open @journalFile
+    jpane = atom.workspace.paneForURI(@journalFile)
+    if jpane == undefined
+      atom.workspace.open(@journalFile,{searchAllPanes:true}).then (editor) -> editor.focus()
+    else
+      jitem = jpane.activateItemForURI(@journalFile)
