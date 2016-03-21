@@ -1,0 +1,30 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Open journal'
+      'command': 'journal:createOrOpen'
+    },
+    {
+      'label': 'Add journal entry'
+      'command': 'journal:newEntry'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'journal'
+      'submenu': [
+        {
+          'label': 'Open journal'
+          'command': 'journal:createOrOpen'
+        },
+        {
+          'label': 'Add journal entry'
+          'command': 'journal:newEntry'
+        }
+      ]
+    ]
+  }
+]
