@@ -4,7 +4,7 @@ Store your thoughts about code - in the code!
 # Introduction
 **journal** is a simple tool to track your thoughts as you code. It allows you to write memos to yourself (and potentially other team members) to explain the concepts that go into your code better. Or maybe its just notes that dont fit anywhere else or maybe they're high level todos. You decide!
 
-#Why whycommit
+#Why journal
 TBD reference to literature.
 
 # Install
