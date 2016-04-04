@@ -52,7 +52,7 @@ module.exports = Journal =
       editor.setCursorBufferPosition(new Point(lastRow,0))
       editor.moveToEndOfLine()
       editor.insertNewline()
-      editor.insertText("** #{new Date().toLocaleString()} **: ")
+      editor.insertText("**#{new Date().toLocaleString()}**: ")
 
   createFileIfNotAlreadyExists: ->
     journalLoc = atom.project.getPaths()[0]
