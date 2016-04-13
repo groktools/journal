@@ -2,15 +2,15 @@
   "name": "journal",
   "main": "./lib/journal",
   "version": "0.0.0",
-  "description": "A short description of your package",
-  "keywords": [
+  "description": "A simple journal package. Allows you to create journal entries in a markdown file",
+  "keywords": [ "journal", "groktools"
   ],
   "activationCommands": {
     "atom-workspace": [
       "journal:createOrOpen",
       "journal:newEntry"]
   },
-  "repository": "https://github.com/atom/journal",
+  "repository": "https://github.com/groktools/journal",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
