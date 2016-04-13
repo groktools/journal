@@ -1,7 +1,7 @@
 {
   "name": "journal",
   "main": "./lib/journal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple journal package. Allows you to create journal entries in a markdown file",
   "keywords": [
     "journal",
